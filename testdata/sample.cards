@@ -1,0 +1,34 @@
+{
+  "title": "Demo deck",
+  "description": "Tiny sample for flash-editor",
+  "sections": [
+    {
+      "id": "basics",
+      "name": "Basics",
+      "cards": [
+        {
+          "id": "b1",
+          "q": "What is 2+2?",
+          "a": "4",
+          "tags": ["math"]
+        },
+        {
+          "id": "b2",
+          "q": "Capital of France?",
+          "a": "Paris"
+        }
+      ]
+    },
+    {
+      "id": "defense",
+      "name": "Defense traps",
+      "cards": [
+        {
+          "id": "d1",
+          "q": "What do you say when VQA looks broken?",
+          "a": "RQ4 is unresolved on official VQA; build/index/abstention still stand."
+        }
+      ]
+    }
+  ]
+}

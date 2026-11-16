@@ -1,0 +1,98 @@
+{
+  "name": "flash-editor",
+  "displayName": "Flashcard Editor",
+  "description": "Study and browse editors for .cards flashcard decks (Reopen Editor With)",
+  "version": "0.1.0",
+  "publisher": "Dev-DanielR",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dev-DanielR/flash-editor.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCustomEditor:flashEditor.study",
+    "onCustomEditor:flashEditor.browse"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "flashEditor.study",
+        "displayName": "Flashcard Study",
+        "selector": [
+          {
+            "filenamePattern": "*.cards"
+          }
+        ],
+        "priority": "default"
+      },
+      {
+        "viewType": "flashEditor.browse",
+        "displayName": "Flashcard Browse",
+        "selector": [
+          {
+            "filenamePattern": "*.cards"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "flashEditor.openStudy",
+        "title": "Flashcards: Open Study"
+      },
+      {
+        "command": "flashEditor.openBrowse",
+        "title": "Flashcards: Open Browse"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "flashEditor.openStudy",
+          "when": "resourceExtname == .cards",
+          "group": "navigation"
+        },
+        {
+          "command": "flashEditor.openBrowse",
+          "when": "resourceExtname == .cards",
+          "group": "navigation"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "flashcards",
+        "extensions": [
+          ".cards"
+        ],
+        "aliases": [
+          "Flashcards",
+          "cards"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "typecheck": "tsc -p ./ --noEmit",
+    "compile": "npm run typecheck && node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "test": "npm run compile && node --test out/cards/*.test.js",
+    "package": "npm run compile && vsce package --out dist/flash-editor-0.1.0.vsix",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.7.0"
+  }
+}
