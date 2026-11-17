@@ -7,11 +7,17 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
   background: var(--vscode-editor-background);
   color: var(--vscode-editor-foreground);
   font-family: var(--vscode-font-family);
   font-size: var(--vscode-font-size);
   font-weight: var(--vscode-font-weight);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 * { box-sizing: border-box; }
 button, input, select, textarea {
@@ -54,13 +60,12 @@ input:focus, textarea:focus, select:focus {
   padding: 8px 12px;
   border-bottom: 1px solid var(--vscode-panel-border, var(--vscode-widget-border));
   background: var(--vscode-sideBar-background, var(--vscode-editor-background));
-  position: sticky;
-  top: 0;
+  flex: 0 0 auto;
   z-index: 2;
 }
 .top .search {
   flex: 1 1 180px;
-  min-width: 140px;
+  min-width: 120px;
 }
 .top .count {
   flex: 0 0 auto;
@@ -70,9 +75,10 @@ input:focus, textarea:focus, select:focus {
 }
 .top .actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .body {
+  flex: 1 1 auto;
+  min-height: 0;
   padding: 8px 12px 24px;
   overflow: auto;
-  height: calc(100% - 49px);
 }
 .muted { color: var(--vscode-descriptionForeground); }
 .empty { padding: 24px 8px; color: var(--vscode-descriptionForeground); }

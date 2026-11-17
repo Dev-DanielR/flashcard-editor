@@ -13,7 +13,7 @@ export interface Section {
   cards: Card[];
 }
 
-/** Root .cards deck document. */
+/** Root .flashcard deck document. */
 export interface Deck {
   title: string;
   description?: string;

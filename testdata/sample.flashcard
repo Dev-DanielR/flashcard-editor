@@ -1,6 +1,6 @@
 {
   "title": "Demo deck",
-  "description": "Tiny sample for flash-editor",
+  "description": "Tiny sample for flashcard-editor",
   "sections": [
     {
       "id": "basics",

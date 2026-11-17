@@ -14,17 +14,19 @@ ${THEME_CSS}
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: calc(100% - 49px);
-  padding: 16px 12px 24px;
-  overflow: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 16px 12px 16px;
+  overflow: hidden;
 }
 .deck-title {
+  flex: 0 0 auto;
   font-size: 13px;
   color: var(--vscode-descriptionForeground);
 }
 .flip-card {
   flex: 1 1 auto;
-  min-height: 220px;
+  min-height: 0;
   border: 1px solid var(--vscode-widget-border, var(--vscode-panel-border));
   border-radius: 8px;
   padding: 20px 18px;
@@ -33,6 +35,7 @@ ${THEME_CSS}
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow: auto;
   user-select: none;
 }
 .flip-card:focus {
@@ -71,13 +74,15 @@ ${THEME_CSS}
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  flex: 0 0 auto;
 }
 .nav .spacer { flex: 1 1 auto; }
 select#section {
-  min-width: 160px;
+  min-width: 120px;
   max-width: 280px;
 }
 .progress-bar {
+  flex: 0 0 auto;
   height: 4px;
   background: var(--vscode-widget-border, transparent);
   border-radius: 2px;

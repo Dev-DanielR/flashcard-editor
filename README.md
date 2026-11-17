@@ -1,16 +1,16 @@
 # Flashcard Editor
 
-VS Code / VSCodium custom editors for `*.cards` flashcard decks:
+VS Code / VSCodium custom editors for `*.flashcard` decks:
 
-- **Flashcard Study** — flip through cards (default when opening `.cards`)
-- **Flashcard Browse** — searchable Q/A list
+- **Flashcard Study** — flip through cards (default when opening `.flashcard`)
+- **Flashcard Browse** — searchable list; edit deck meta, sections, and cards
 - **Text Editor** — edit the JSON directly
 
-Use **View: Reopen Editor With…** on a `.cards` file to switch modes.
+Use **View: Reopen Editor With…** on a `.flashcard` file to switch modes.
 
 ## File format
 
-`.cards` is pretty-printed JSON:
+`.flashcard` is pretty-printed JSON:
 
 ```json
 {
@@ -45,15 +45,23 @@ Top bar: section filter, search, shuffle, reset order.
 
 Search and filter by section. Expand/collapse answers. **Copy Q/A** or jump to **Study**.
 
+Editing (writes the `.flashcard` JSON):
+
+- **Edit deck** — title and description
+- **Add section** / rename / delete section (delete removes its cards)
+- **Add card** / **Edit** — question, answer, tags, section
+- **Delete** — remove a card
+- `Esc` — cancel an open form
+
 ## Install
 
 ```bash
 npm install
 npm run package
-codium --install-extension dist/flash-editor-0.1.0.vsix --force
+codium --install-extension dist/flashcard-editor-0.1.0.vsix --force
 ```
 
-Or `code --install-extension …`. Then **Developer: Reload Window** and open a `.cards` file.
+Or `code --install-extension …`. Then **Developer: Reload Window** and open a `.flashcard` file.
 
 ## Develop
 

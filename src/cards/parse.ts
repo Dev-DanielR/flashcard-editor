@@ -92,7 +92,7 @@ function parseSection(raw: unknown, path: string, errors: ParseError[]): Section
   return { id, name, cards };
 }
 
-/** Parse a .cards JSON document. Returns a deck plus soft errors. */
+/** Parse a .flashcard JSON document. Returns a deck plus soft errors. */
 export function parseDeckWithErrors(text: string): ParseResult {
   const errors: ParseError[] = [];
   const trimmed = text.trim();

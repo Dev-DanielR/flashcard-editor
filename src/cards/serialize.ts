@@ -20,7 +20,7 @@ function sectionJson(section: Section): Record<string, unknown> {
   };
 }
 
-/** Pretty-print a deck as .cards JSON (2-space indent, trailing newline). */
+/** Pretty-print a deck as .flashcard JSON (2-space indent, trailing newline). */
 export function serializeDeck(deck: Deck): string {
   const o: Record<string, unknown> = {
     title: deck.title,

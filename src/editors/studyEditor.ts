@@ -4,7 +4,7 @@ import { flattenDeck } from "../cards/types";
 import { validateDeck } from "../cards/validate";
 import { studyHtml } from "../webview/study.html";
 
-export const STUDY_VIEW_TYPE = "flashEditor.study";
+export const STUDY_VIEW_TYPE = "flashcardEditor.study";
 
 export class FlashStudyEditorProvider implements vscode.CustomTextEditorProvider {
   public static register(context: vscode.ExtensionContext): vscode.Disposable {
@@ -42,7 +42,7 @@ export class FlashStudyEditorProvider implements vscode.CustomTextEditorProvider
       lastErrorSig = sig;
       const head = errors[0].error;
       const more = errors.length > 1 ? ` (+${errors.length - 1} more)` : "";
-      void vscode.window.showWarningMessage(`Flashcards parse: ${head}${more}`);
+      void vscode.window.showWarningMessage(`Flashcard parse: ${head}${more}`);
     };
 
     const postState = () => {

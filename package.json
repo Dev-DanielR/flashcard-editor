@@ -1,13 +1,13 @@
 {
-  "name": "flash-editor",
+  "name": "flashcard-editor",
   "displayName": "Flashcard Editor",
-  "description": "Study and browse editors for .cards flashcard decks (Reopen Editor With)",
+  "description": "Study and browse/edit custom editors for .flashcard decks",
   "version": "0.1.0",
   "publisher": "Dev-DanielR",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dev-DanielR/flash-editor.git"
+    "url": "https://github.com/Dev-DanielR/flashcard-editor.git"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -16,28 +16,28 @@
     "Other"
   ],
   "activationEvents": [
-    "onCustomEditor:flashEditor.study",
-    "onCustomEditor:flashEditor.browse"
+    "onCustomEditor:flashcardEditor.study",
+    "onCustomEditor:flashcardEditor.browse"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "customEditors": [
       {
-        "viewType": "flashEditor.study",
+        "viewType": "flashcardEditor.study",
         "displayName": "Flashcard Study",
         "selector": [
           {
-            "filenamePattern": "*.cards"
+            "filenamePattern": "*.flashcard"
           }
         ],
         "priority": "default"
       },
       {
-        "viewType": "flashEditor.browse",
+        "viewType": "flashcardEditor.browse",
         "displayName": "Flashcard Browse",
         "selector": [
           {
-            "filenamePattern": "*.cards"
+            "filenamePattern": "*.flashcard"
           }
         ],
         "priority": "option"
@@ -45,37 +45,41 @@
     ],
     "commands": [
       {
-        "command": "flashEditor.openStudy",
-        "title": "Flashcards: Open Study"
+        "command": "flashcardEditor.openStudy",
+        "title": "Open Study",
+        "category": "Flashcard Editor",
+        "icon": "$(book)"
       },
       {
-        "command": "flashEditor.openBrowse",
-        "title": "Flashcards: Open Browse"
+        "command": "flashcardEditor.openBrowse",
+        "title": "Open Browse",
+        "category": "Flashcard Editor",
+        "icon": "$(list-flat)"
       }
     ],
     "menus": {
       "editor/title": [
         {
-          "command": "flashEditor.openStudy",
-          "when": "resourceExtname == .cards",
+          "command": "flashcardEditor.openStudy",
+          "when": "resourceExtname == .flashcard",
           "group": "navigation"
         },
         {
-          "command": "flashEditor.openBrowse",
-          "when": "resourceExtname == .cards",
+          "command": "flashcardEditor.openBrowse",
+          "when": "resourceExtname == .flashcard",
           "group": "navigation"
         }
       ]
     },
     "languages": [
       {
-        "id": "flashcards",
+        "id": "flashcard",
         "extensions": [
-          ".cards"
+          ".flashcard"
         ],
         "aliases": [
-          "Flashcards",
-          "cards"
+          "Flashcard",
+          "Flashcard Deck"
         ]
       }
     ]
@@ -85,7 +89,7 @@
     "compile": "npm run typecheck && node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
     "test": "npm run compile && node --test out/cards/*.test.js",
-    "package": "npm run compile && vsce package --out dist/flash-editor-0.1.0.vsix",
+    "package": "npm run compile && vsce package --out dist/flashcard-editor-0.1.0.vsix",
     "vscode:prepublish": "npm run compile"
   },
   "devDependencies": {
